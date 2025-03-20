@@ -70,9 +70,4 @@ function deleteProduct(e) {
     let tr = document.getElementById(index);
     tr.remove();
     
-    tableProduct.name.splice(index, 1);
-    tableProduct.price.splice(index, 1);
-    tableProduct.category.splice(index, 1);
-    tableProduct.urlImage.splice(index, 1);
-    
 }
