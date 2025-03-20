@@ -14,6 +14,7 @@ let urlImage = document.querySelector('#url-image');
 
 listProduct = [nameProduct, price, category];
 let table = document.querySelector('table');
+let counter = 0;
 
 function addProduct(e) {
     e.preventDefault();
@@ -50,7 +51,8 @@ function addProduct(e) {
     button.addEventListener('click', deleteProduct);
     td.appendChild(button);
     tr.appendChild(td);
-
+    
+    tr.id = counter;
     tbody.appendChild(tr);
     table.appendChild(tbody);
 
@@ -59,10 +61,18 @@ function addProduct(e) {
     price.value = '';
     category.value = '';
     urlImage.value = '';
-    
+    counter++;
 }
 
 function deleteProduct(e) {
-    console.log(e);
+    console.log(e.target);
+    let index = e.target.parentElement.parentElement.id;
+    let tr = document.getElementById(index);
+    tr.remove();
+    
+    tableProduct.name.splice(index, 1);
+    tableProduct.price.splice(index, 1);
+    tableProduct.category.splice(index, 1);
+    tableProduct.urlImage.splice(index, 1);
     
 }
