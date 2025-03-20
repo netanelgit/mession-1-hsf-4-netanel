@@ -1,0 +1,87 @@
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(140 140 140);
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+th,
+td {
+    border: 1px solid rgb(160 160 160);
+    padding: 8px 10px;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    border-radius: 10%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    background-color: rgb(215, 230, 230);
+    height: 100vh;
+    margin: 3px;
+
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    padding: 0;
+    height: 80vh;
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+header {
+    height: 8vh;
+    background-color: #7ab5b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem;  
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+}
+
+form {
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 80vw;
+    padding: 5px;
+    margin: 5px;
+    border-bottom: 1px solid rgb(140 140 140);
+}
+.form-input {
+    margin: 5px;
+    padding: auto;
+    height: 5rem;
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+table {
+    height: 40vh;
+    margin: 5px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    box-shadow: -1px 0 0.4em rgb(179, 179, 176);
+};

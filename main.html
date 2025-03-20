@@ -11,22 +11,64 @@
 <body>
     <div class="container">
         <header>
-
+            <h1>Product Shop</h1>
         </header>
-        <div class="content">
-            <div class="sidebar">
-                
-            </div>
-        </div>
+        <div class="main">
+            <h3>Add product</h3>
 
+            <form action="" class="form-add-product">
+        
+                <div class="form-input">
+                    <label for="name-product">product name:</label>
+                    <input type="text" id="name-product" placeholder="type name product" required>
+                </div>
+                <div class="form-input">
+                    <label for="price-product">price:</label>
+                    <input type="number" id="price-product" placeholder="type price product" required>
+                </div>
+                <div class="form-input">
+                    <label for="choose-product">category:</label>
+                    <select name="" id="choose-product" required>
+                        <option value="drinks">Drinks</option>
+                        <option value="meat">Meat</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="snacks">Snacks</option>
+                        <option value="basic">Basic</option>
+                    </select>
+                </div>
+                <div class="form-input">
+                    <label for="url-image">Enter your url image:</label>
+                    <input type="url" id="url-image" placeholder="type url image" required>
+                </div>
+                <button type="submit" class="btn-submit" onclick="addProduct(event)">Add product</button>
+            </form>
+
+            <h3> Table Cart</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Product name</th>
+                        <th scope="col" itemtype="number">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+
+
+        </div>
     </div>
 
 
-    <!-- <script src="ex1.js"></script> -->
-    <!-- <script src="ex2.js"></script> -->
-    <!-- <script src="ex3.js"></script> -->
-    <!-- <script src="ex4.js"></script> -->
-    <!-- <script src="ex5.js"></script> -->
+    <script src="mession-1.js"></script>
+
 </body>
 
 </html>
