@@ -17,7 +17,7 @@
             <h3>Add product</h3>
 
             <form action="" class="form-add-product">
-        
+
                 <div class="form-input">
                     <label for="name-product">product name:</label>
                     <input type="text" id="name-product" placeholder="type name product" required>
@@ -29,6 +29,7 @@
                 <div class="form-input">
                     <label for="choose-product">category:</label>
                     <select name="" id="choose-product" required>
+                        <option value="" disabled selected>select category</option>
                         <option value="drinks">Drinks</option>
                         <option value="meat">Meat</option>
                         <option value="dairy">Dairy</option>
@@ -44,7 +45,7 @@
             </form>
 
             <h3> Table Cart</h3>
-            <table>
+            <table id="table-product">
                 <thead>
                     <tr>
                         <th scope="col">Product name</th>
@@ -62,12 +63,17 @@
                 </tfoot>
             </table>
 
+            <!-- <button onclick="addInput()">check</button>
+            <input type="text" id="check-input" >
+            <div id="check"></div> -->
+
 
         </div>
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
     <script src="mession-1.js"></script>
+
 
 </body>
 
