@@ -1,62 +1,79 @@
 // submit form and add product
 const tableProduct = [];
 
+let nameProduct = document.querySelector("#name-product");
+let price = document.querySelector("#price-product");
+let category = document.querySelector("#choose-product");
+let urlImage = document.querySelector("#url-image");
 
-let nameProduct = document.querySelector('#name-product');
-let price = document.querySelector('#price-product');
-let category = document.querySelector('#choose-product');
-let urlImage = document.querySelector('#url-image');
+const form = document.querySelector("form");
+let table = document.querySelector("table");
+let tbody = table.querySelector("tbody");
 
-const form = document.querySelector('form');
-let table = document.querySelector('table');
-let tbody = table.querySelector('tbody');
-
-listProduct = [nameProduct, price, category];
+// listProduct = [nameProduct, price, category];
 let counter = 0;
 
 function addProduct(e) {
     e.preventDefault();
-    if (nameProduct.value === '' || price.value === '' || category.value === '' || urlImage.value === '') {
-        alert('please fill all field')
-        return;
+  // check if all field is filled
+    if (
+    nameProduct.value === "" ||
+    price.value === "" ||
+    category.value === "" ||
+    urlImage.value === ""
+    ) {
+    alert("please fill all field");
+    return;
     }
-    
+   // add to tableProduct
     tableProduct.push({
-        name: nameProduct.value,
-        price: price.value,
-        category: category.value,
-        urlImage: urlImage.value
+    name: nameProduct.value,
+    price: price.value,
+    category: category.value,
+    urlImage: urlImage.value,
     });
 
     // add to table html
-    let tr = document.createElement('tr');
+    let tr = document.createElement("tr");
     let product = tableProduct[counter];
     console.log(product);
 
-    let keys = Object.keys(product);
-    console.log(keys);
-    
+//     let keys = Object.keys(product);
+//     console.log(keys);
 
-    for (let i = 0; i < keys.length-1; i++) {
-        let td = document.createElement('td');
-        td.textContent = product[keys[i]];
-        tr.appendChild(td);
+//     for (let i = 0; i < keys.length - 1; i++) {
+//     let td = document.createElement("td");
+//     td.textContent = product[keys[i]];
+//     tr.appendChild(td);
+//     }
+//     // handle image
+//     let img = document.createElement("img");
+//     td = document.createElement("td");
+//     img.src = product.urlImage;
+//     td.appendChild(img);
+//     tr.appendChild(td);
+
+//   // handle delete button
+//     td = document.createElement("td");
+//     let button = document.createElement("button");
+//     button.textContent = "Delete";
+//     button.addEventListener("click", deleteProduct);
+//     td.appendChild(button);
+//     tr.appendChild(td);
+
+    // other way to add id to tr with inner html
+    let safeInput = DOMPurify.sanitize(product.name + product.price + product.category + product.urlImage);
+    if (safeInput !== product.name + product.price + product.category + product.urlImage) {
+        alert("Please don't use special characters");
+        return;
     }
-    // handle image
-    let img = document.createElement('img');
-    td = document.createElement('td');
-    img.src = product.urlImage;
-    td.appendChild(img);
-    tr.appendChild(td);
+    tr.innerHTML = `
+    <td>${product.name}</td>
+    <td>${product.price}</td>
+    <td>${product.category}</td>
+    <td><img src="${product.urlImage}" alt="image"></td>
+    <td><button onclick="deleteProduct(event)">Delete</button></td>`;
 
-    // handle delete button
-    td = document.createElement('td');
-    let button = document.createElement('button');
-    button.textContent = 'Delete';
-    button.addEventListener('click', deleteProduct);
-    td.appendChild(button);
-    tr.appendChild(td);
-    
     tr.id = counter;
     tbody.appendChild(tr);
     table.appendChild(tbody);
@@ -66,19 +83,17 @@ function addProduct(e) {
 }
 
 function deleteProduct(e) {
-    console.log(e.target);
     let index = e.target.parentElement.parentElement.id;
+
+    // remove from tableProduct
+    tableProduct.splice(index, 1);
+
+    // remove from table html
     let tr = document.getElementById(index);
     tr.remove();
-
 }
 
-
-
-
-
-
-/// here how to use inner html to display data on safe way 
+/// here how to use inner html to display data on safe way
 // function sanitizeInput(input) {
 //     return input.replace(/&/g, "&amp;")
 //                 .replace(/</g, "&lt;")
